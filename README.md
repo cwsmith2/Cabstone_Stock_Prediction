@@ -2,16 +2,17 @@
 # Stock-Predictor
 
 ## Overview
-The Stock-Predictor project applies machine learning models to analyze historical stock price data and predict future stock prices. The project integrates a Streamlit-based web application that allows users to visualize historical data, choose from various prediction models, and make data-driven decisions based on future price predictions.
+Predicting stock prices is a classic problem in finance and a perfect challenge for data science techniques. With the rise of machine learning, leveraging historical stock price data to predict future trends has become an increasingly valuable tool. 
 
-This project leverages the power of regression models and deep learning techniques to offer a versatile prediction tool tailored for financial forecasting.
+This project explores how machine learning and deep learning models can analyze historical stock data to forecast future prices. It also evaluates the performance of various models, including regression models and Long Short-Term Memory (LSTM) networks, to provide actionable insights. A Streamlit-based web application has been developed to allow users to interact with the models, visualize trends, and receive predictions.
+
 
 ---
 
 ## Table of Contents
 1. [Installation](#installation)
-2. [Project Motivation](#project-motivation)
-3. [Project Definition](#project-definition)
+2. [Project Purpose](#project-purpose)
+3. [Project Details](#project-details)
 4. [File Descriptions](#file-descriptions)
 5. [How to Run](#how-to-run)
 6. [Analysis Overview](#analysis-overview)
@@ -49,7 +50,7 @@ To set up and run the project, ensure the following Python libraries are install
 
 ---
 
-## Project Motivation
+## Project Purpose
 
 Predicting stock prices has long been a challenge in quantitative finance. The ability to anticipate market trends and price movements can provide a significant edge to investors and traders. This project addresses key questions:
 
@@ -59,9 +60,20 @@ Predicting stock prices has long been a challenge in quantitative finance. The a
 
 This project combines financial data analysis with predictive modeling to answer these questions, leveraging multiple machine learning approaches for comparative insights.
 
+
+
 ---
 
-## Project Definition
+## Project Details
+
+Problem Statement
+Stock price movements are inherently complex and influenced by multiple factors. Despite this complexity, historical stock price data provides patterns and trends that can be leveraged for prediction.
+
+The primary question this project aims to address is:
+
+How effectively can machine learning models predict stock prices based on historical data?
+Which models are most suitable for this task in terms of accuracy, interpretability, and computational efficiency?
+This project aims to create a robust solution for predicting stock prices and compare model performances using standard evaluation metrics.
 
 The Stock-Predictor aims to:
 1. **Predict Stock Prices**: Develop models to forecast future stock prices based on historical data.
@@ -75,9 +87,9 @@ The Stock-Predictor aims to:
    - Predictions based on user-selected models and stock tickers.
 
 ### Metrics:
-- **Mean Squared Error (MSE)**: Quantifies average squared errors in predictions.
-- **R² Score**: Measures variance explained by the model.
-- **Prediction Accuracy**: Evaluates the percentage of predictions falling within a 5-10% range of actual values.
+- **Mean Squared Error (MSE)**: Measures the average squared difference between predicted and actual values. Lower MSE indicates better performance.
+- **R² Score**: Indicates the proportion of variance explained by the model. A higher R² score represents a better fit.
+- **Prediction Accuracy**: Evaluates the percentage of predictions that fall within a 5-10% range of actual prices, offering a practical measure of prediction reliability.
 
 ---
 
@@ -116,15 +128,19 @@ The Stock-Predictor aims to:
 
 ### Methodology
 1. **Regression Models**:
-   - Linear Regression
-   - Decision Tree Regression
-   - Support Vector Machine (SVM)
+   - Linear Regression: A simple baseline model that assumes linear relationships between features and the target variable.
+   - Decision Tree Regression: Captures non-linear relationships but risks overfitting without proper tuning.
+   - Support Vector Machine (SVM): Handles non-linear patterns using kernel functions like polynomial and radial basis function (RBF).
 2. **Deep Learning**:
-   - LSTM Neural Networks to model long-term dependencies.
+   - LSTM Neural Networks to model long-term dependencies: Captures long-term dependencies in time series data, suitable for complex stock price movements.
 
 ### Preprocessing
-- Normalize closing prices to (0, 1) for LSTM models.
-- Split data into training (80%) and testing (20%) subsets.
+Normalization:
+For models like LSTM, stock prices are normalized to a range of (0, 1) using MinMaxScaler to ensure stable model training.
+Train-Test Split:
+Data is split into 80% training and 20% testing to evaluate model performance on unseen data.
+Feature Engineering:
+For LSTM, the previous 60 days' closing prices are used as input to predict the next day’s price.
 
 ### Evaluation
 - Train models on historical data and compare predictions against actual stock prices using metrics like MSE and R² Score.
@@ -140,10 +156,15 @@ The Stock-Predictor aims to:
 | SVM          | 9.16      | 3.88     | 0.91     | 0.93    | 97.3                   |
 | LSTM         | 1.40      | 25.56    | 0.99     | 0.83    | 92.7                   |
 
-### Visualization
-The closing price history of Apple Inc. is shown below. It highlights the importance of selecting models based on trends and patterns in the data.
+Key Findings:
+- Linear Regression provides robust predictions for short-term trends.
+- Decision Tree Regression risks overfitting with high depth.
+- SVM balances complexity and generalization.
+- LSTM captures intricate patterns but may overfit small datasets.
 
-![History Price of Apple](image.png)
+Visualization:
+The closing price history of Apple Inc. is shown below. 
+![History Price of Apple](output.png)
 
 ---
 
