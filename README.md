@@ -17,6 +17,7 @@ This project leverages the power of regression models and deep learning techniqu
 6. [Analysis Overview](#analysis-overview)
 7. [Results](#results)
 8. [Conclusion](#conclusion)
+9. [Limitations and Future Work](#limitations-and-future-work)
 9. [Acknowledgements](#acknowledgements)
 
 ---
@@ -31,6 +32,9 @@ To set up and run the project, ensure the following Python libraries are install
 - `matplotlib`
 - `tensorflow`
 - `scikit-learn`
+- `keras`
+- `scikeras`
+
 
 ### Steps:
 1. **Set Up Virtual Environment** (Optional but recommended):
@@ -136,15 +140,10 @@ The Stock-Predictor aims to:
 | SVM          | 9.16      | 3.88     | 0.91     | 0.93    | 97.3                   |
 | LSTM         | 1.40      | 25.56    | 0.99     | 0.83    | 92.7                   |
 
-Key Findings:
-- Linear Regression provides robust predictions for short-term trends.
-- Decision Tree Regression risks overfitting with high depth.
-- SVM balances complexity and generalization.
-- LSTM captures intricate patterns but may overfit small datasets.
+### Visualization
+The closing price history of Apple Inc. is shown below. It highlights the importance of selecting models based on trends and patterns in the data.
 
-Visualization:
-The closing price history of Apple Inc. is shown below. 
-![History Price of Apple](output.png)
+![History Price of Apple](image.png)
 
 ---
 
@@ -169,6 +168,55 @@ This project demonstrates the feasibility of predicting stock prices using machi
    - Evaluate models across volatile market conditions.
 
 ---
+## Limitations and Future Work
+
+### Limitations
+While the Stock-Predictor project achieves its goals of providing accurate stock price predictions and an interactive user interface, there are several limitations to consider:
+
+1. **Data Features**:
+   - The models rely primarily on historical closing prices. Other potentially significant features, such as volume, financial ratios, or macroeconomic indicators, are not included.
+
+2. **Overfitting**:
+   - Advanced models like LSTM show signs of overfitting on training data, especially with small datasets. This limits their generalization to unseen data.
+
+3. **Volatility and Extreme Events**:
+   - The models are less effective for stocks with high volatility or those influenced by sudden events (e.g., earnings announcements, regulatory changes).
+
+4. **Prediction Horizon**:
+   - The models are optimized for next-day predictions. Multi-day or long-term forecasts may require more complex modeling approaches.
+
+5. **Computational Efficiency**:
+   - The grid search for parameter optimization, particularly for LSTM, is computationally expensive and time-consuming.
+
+### Future Work
+To address these limitations and enhance the project, the following improvements are proposed:
+
+1. **Feature Engineering**:
+   - Incorporate additional features, such as:
+     - Moving averages, volatility, and momentum indicators.
+     - Sector-specific trends or macroeconomic factors.
+     - Textual sentiment analysis from financial news or social media.
+
+2. **Alternative Models**:
+   - Experiment with ensemble methods (e.g., Random Forests, Gradient Boosting) for regression tasks.
+   - Explore neural network architectures, such as Attention Mechanisms or Transformers, for better handling of time series data.
+
+3. **Enhanced Preprocessing**:
+   - Utilize techniques like Principal Component Analysis (PCA) to reduce noise and highlight critical data trends.
+   - Normalize or scale features uniformly across all datasets for better consistency.
+
+4. **Prediction Horizon Expansion**:
+   - Extend the application to support predictions over multiple days or weeks, with configurable horizons based on user input.
+
+5. **Real-Time Integration**:
+   - Connect the application to real-time data sources for live updates and predictions.
+   - Incorporate user feedback mechanisms for iterative model improvement.
+
+By implementing these enhancements, the Stock-Predictor can evolve into a more robust and versatile tool for financial forecasting.
+
+
+---
+
 
 ## Acknowledgements
 
