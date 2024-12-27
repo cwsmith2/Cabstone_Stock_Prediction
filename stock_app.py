@@ -44,7 +44,7 @@ st.write(
 )
 
 # Function to load historical stock data for the selected ticker
-@st.cache
+@st.cache_data
 def load_data(ticker):
     """
     Fetch historical stock data for the selected ticker.
