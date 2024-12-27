@@ -114,6 +114,12 @@ This project predicts stock prices using historical data and machine learning mo
 
 ## Results
 
+| Model        | Train MSE | Test MSE | Train R2 | Test R2 | Prediction Accuracy (%) |
+|--------------|-----------|----------|----------|---------|-------------------------|
+| Linear       | 7.42      | 3.27     | 0.92     | 0.94    | 98.5                   |
+| DecisionTree | 5.61      | 9.36     | 0.94     | 0.83    | 96.8                   |
+| SVM          | 9.16      | 3.88     | 0.91     | 0.93    | 97.3                   |
+| LSTM         | 1.40      | 25.56    | 0.99     | 0.83    | 92.7                   |
 
 Key Insights:
 - Linear Regression performs consistently well for most stocks.
@@ -128,7 +134,13 @@ Key Insights:
 ### Reflection
 This project highlights the potential of machine learning for stock price prediction. While simpler models like Linear Regression work well for short-term trends, advanced models like LSTM are better suited for capturing intricate patterns over longer periods.
 
+Regression models perform reliably for most stocks, with Linear Regression achieving the best results in this case.
+- The DecisionTree model overfits training data without careful parameter selection.
+- LSTM, while robust in capturing long-term dependencies, showed higher error in test data compared to simpler models.
+
+
 ## Acknowledgements
 
 - **Data Source**: [Yahoo Finance API](https://finance.yahoo.com/).
+- **Udacity Data Science Nanodegree**: [Udacity](https://learn.udacity.com/)
 
